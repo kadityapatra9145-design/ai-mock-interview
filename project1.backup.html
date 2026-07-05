@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InterviewAI – Your Personal AI Interview Coach</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">AI Interview Preparation Platform</p>
+        <h1>InterviewAI</h1>
+        <p>Your personal AI interview coach for realistic practice, voice answers, resume review, and final performance scoring.</p>
+      </div>
+      <div class="status-card">
+        <strong id="currentUserLabel">Guest</strong>
+        <small id="historyCount">No history yet</small>
+      </div>
+    </header>
+
+    <section id="loginSection" class="panel">
+      <h2>Sign up or log in</h2>
+      <div class="form-grid">
+        <label>Username<input id="usernameInput" placeholder="Enter your username" /></label>
+        <label>Password<input id="passwordInput" type="password" placeholder="Enter a password" /></label>
+      </div>
+      <div class="button-row">
+        <button id="signUpBtn">Create account</button>
+        <button id="signInBtn">Sign in</button>
+      </div>
+      <p class="small">Your practice history is saved locally in the browser.</p>
+    </section>
+
+    <section id="dashboardSection" class="panel hidden-panel">
+      <h2>Choose an interview flow</h2>
+      <div class="card-grid">
+        <button class="flow-card selected" data-role="Software Developer">Software Developer</button>
+        <button class="flow-card" data-role="Java Developer">Java Developer</button>
+        <button class="flow-card" data-role="Python Developer">Python Developer</button>
+        <button class="flow-card" data-role="Data Analyst">Data Analyst</button>
+        <button class="flow-card" data-role="HR Interview">HR Interview</button>
+        <button class="flow-card" data-role="Cybersecurity">Cybersecurity</button>
+        <button class="flow-card" data-role="Custom">Custom interview</button>
+      </div>
+      <div class="settings-panel">
+        <label>Experience level
+          <select id="experienceLevel">
+            <option>Entry level</option>
+            <option>Intermediate</option>
+            <option>Senior</option>
+          </select>
+        </label>
+        <label>Difficulty
+          <select id="difficultyLevel">
+            <option>Easy</option>
+            <option selected>Medium</option>
+            <option>Hard</option>
+          </select>
+        </label>
+      </div>
+      <div class="button-row">
+        <button id="startInterviewBtn">Start mock interview</button>
+        <button id="resumeUploadToggle">Upload resume</button>
+      </div>
+    </section>
+
+    <section id="interviewSection" class="panel hidden-panel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Interview session</p>
+          <h2 id="sessionTitle">Mock interview</h2>
+          <p id="sessionSubtitle" class="small"></p>
+        </div>
+        <button class="secondary-btn" id="endSessionBtn">Finish session</button>
+      </div>
+
+      <div class="question-card">
+        <div class="badge good" id="questionRole">Role</div>
+        <div class="question-text" id="questionText">Your question appears here.</div>
+      </div>
+
+      <label>Answer by typing or speaking</label>
+      <textarea id="answerInput" placeholder="Type your response here..."></textarea>
+      <div class="button-row">
+        <button id="startVoiceBtn">Start voice answer</button>
+        <button id="submitAnswerBtn">Submit answer</button>
+      </div>
+      <div id="voiceStatus" class="small muted"></div>
+      <div id="feedbackPanel" class="result-panel"></div>
+    </section>
+
+    <section id="resumeSection" class="panel hidden-panel">
+      <h2>Resume upload and AI review</h2>
+      <p>Upload your resume text file and get skills suggestions plus interview questions based on your experience.</p>
+      <input id="resumeFileInput" type="file" accept=".txt,.pdf,.doc,.docx" />
+      <button id="reviewResumeBtn">Review resume</button>
+      <div id="resumeFeedback" class="result-panel"></div>
+    </section>
+
+    <section id="reportSection" class="panel hidden-panel">
+      <h2>Final performance report</h2>
+      <div class="report-grid" id="reportCards"></div>
+      <div class="result-panel" id="improvementPlan"></div>
+      <button id="backDashboardBtn">Back to dashboard</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
